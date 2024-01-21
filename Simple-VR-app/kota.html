@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kota Lain</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Lingkungan Kota Lain -->
+        <a-sky src="pantai.jpg"></a-sky>
+
+        <!-- Objek-objek Kota Lain -->
+        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+        <!-- Tambahkan objek lain sesuai dengan tema -->
+
+        <!-- Link Kembali ke Kota Utama -->
+        <a-text position="0 2 -3" value="Kembali ke Kota Utama" link="href: index.html" color="white"></a-text>
+
+        <!-- Kursor VR -->
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+    </a-scene>
+</body>
+</html>

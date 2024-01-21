@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR City</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Lingkungan Kota Futuristik -->
+        <a-sky src="city_fut.jpg"></a-sky>
+
+        <!-- Objek Kota Futuristik -->
+        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+
+        <!-- Event Mouse (Klik/Hover) -->
+        <a-box position="-2 1 -2" color="red" event-set__enter="_event: mouseenter; _target: #box; color: green"
+            event-set__leave="_event: mouseleave; _target: #box; color: red" cursor-listener></a-box>
+
+        <!-- Link ke Dunia VR Lainnya -->
+        <a-text position="-2.5 2 -3" value="Pindah ke Kota lain" link="href: kota.html" color="white"></a-text>
+        <a-text position="1.5 2 -3" value="Pindah ke Taman" link="href: taman.html" color="white"></a-text>
+
+        <!-- Kursor VR -->
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+    </a-scene>
+
+    <script>
+        AFRAME.registerComponent('cursor-listener', {
+            init: function () {
+                var COLORS = ['red', 'green', 'blue'];
+                this.el.addEventListener('click', function () {
+                    var randomColor = COLORS[Math.floor(Math.random() * COLORS.length)];
+                    this.setAttribute('color', randomColor);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
